@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /coherity-sample
+
+spring:
+  application:
+    name: coherity-sample-service
+
+# Actuator configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,env,loggers
+  endpoint:
+    health:
+      show-details: when-authorized
+  info:
+    env:
+      enabled: true
