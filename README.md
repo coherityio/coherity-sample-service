@@ -1,2 +1,2 @@
-# lab-sample-service
+# coherity-sample-service
 sample rest apis for testing
