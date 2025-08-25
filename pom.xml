@@ -18,6 +18,23 @@
     <name>Coherity Sample Service</name>
     <description>Sample REST service using Coherity Spring Boot parent POM</description>
 
+	<properties>
+		<project.repo.url>https://maven.pkg.github.com/coherityio/coherity-sample-service</project.repo.url>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>coherity-sample-service-repo</id>
+			<name>Coherity Sample Service Repo</name>
+			<url>https://maven.pkg.github.com/coherityio/coherity-sample-service</url>
+		</repository>
+		<snapshotRepository>
+			<id>coherity-sample-service-repo</id>
+			<name>Coherity Sample Service Snapshots Repo</name>
+			<url>https://maven.pkg.github.com/coherityio/coherity-sample-service</url>
+		</snapshotRepository>
+	</distributionManagement>
+
     <dependencies>
         <!-- Spring Boot Starters -->
         <dependency>
