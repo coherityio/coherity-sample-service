@@ -35,9 +35,15 @@ jobs:
         
     - name: Run tests
       run: ./mvnw -s .github/workflows/ci-settings.xml test
+      env:
+        MAVEN_USERNAME: ${{ github.actor }}
+        MAVEN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
       
     - name: Build application
       run: ./mvnw -s .github/workflows/ci-settings.xml clean package -DskipTests
+      env:
+        MAVEN_USERNAME: ${{ github.actor }}
+        MAVEN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
       
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
