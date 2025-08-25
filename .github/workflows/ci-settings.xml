@@ -23,6 +23,13 @@
 			<username>${MAVEN_USERNAME}</username>
 			<password>${MAVEN_PASSWORD}</password>
 		</server>
+
+		<server>
+			<id>coherity-sample-service-repo</id>
+			<username>${MAVEN_USERNAME}</username>
+			<password>${MAVEN_PASSWORD}</password>
+		</server>
+
 	</servers>
 
 	<profiles>
@@ -60,6 +67,18 @@
 					<id>coherity-parent-pom-spring-repo</id>
 					<name>coherity-parent-pom-spring-repo</name>
 					<url>https://maven.pkg.github.com/coherityio/parent-pom-spring</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+
+				<repository>
+					<id>coherity-sample-service-repo</id>
+					<name>coherity-sample-service-repo</name>
+					<url>https://maven.pkg.github.com/coherityio/coherity-sample-service</url>
 					<releases>
 						<enabled>true</enabled>
 					</releases>

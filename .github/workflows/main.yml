@@ -34,10 +34,10 @@ jobs:
       run: chmod +x ./mvnw
         
     - name: Run tests
-      run: ./mvnw test
+      run: ./mvnw -s .github/workflows/ci-settings.xml test
       
     - name: Build application
-      run: ./mvnw clean package -DskipTests
+      run: ./mvnw -s .github/workflows/ci-settings.xml clean package -DskipTests
       
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
@@ -76,21 +76,6 @@ jobs:
         
     - name: Make Maven wrapper executable
       run: chmod +x ./mvnw
-      
-    - name: Configure Maven for GitHub Packages
-      run: |
-        mkdir -p ~/.m2
-        cat > ~/.m2/settings.xml << 'EOF'
-        <settings>
-          <servers>
-            <server>
-              <id>github</id>
-              <username>${{ github.actor }}</username>
-              <password>${{ secrets.GITHUB_TOKEN }}</password>
-            </server>
-          </servers>
-        </settings>
-        EOF
         
     - name: Download build artifacts
       uses: actions/download-artifact@v4
@@ -99,9 +84,10 @@ jobs:
         path: target/
         
     - name: Publish JAR to GitHub Packages
-      run: ./mvnw deploy -DskipTests
+      run: ./mvnw -s .github/workflows/ci-settings.xml deploy -DskipTests
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MAVEN_USERNAME: ${{ github.actor }}
+        MAVEN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
 
   build-docker:
     name: Build and Publish Docker Image
