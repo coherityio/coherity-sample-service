@@ -18,8 +18,8 @@ public class GreetingController
         log.info("public greeting accessed");
         return "hello public";
     }
-    
-    @GetMapping("")
+
+    @GetMapping("protected")
     @PreAuthorize("hasAuthority('greeting.protected.read')")
     public String getProtectedGreeting()
     {
