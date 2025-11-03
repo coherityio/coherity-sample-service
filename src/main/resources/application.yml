@@ -6,6 +6,13 @@ server:
 spring:
   application:
     name: coherity-sample-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8401/realms/coherity-sample-realm
+          # Alternative: use jwk-set-uri instead of issuer-uri
+          # jwk-set-uri: http://localhost:8081/realms/your-realm-name/protocol/openid-connect/certs
 
 # Actuator configuration
 management:
