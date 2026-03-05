@@ -222,7 +222,7 @@ jobs:
   notify:
     name: Notify Results
     runs-on: ubuntu-latest
-    needs: [build-and-test, publish-packages, build-docker]
+    needs: [build-and-test, publish-packages, build-docker, publish-ecr]
     if: always()
     
     steps:
