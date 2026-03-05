@@ -229,6 +229,9 @@ jobs:
         push: true
         tags: ${{ steps.meta-ecr.outputs.tags }}
         labels: ${{ steps.meta-ecr.outputs.labels }}
+        build-args: |
+          ARTIFACT_ID=coherity-sample-service
+          VERSION=${{ github.ref_name == 'main' && '1.0.0-SNAPSHOT' || github.ref_name }}
         cache-from: type=gha
         cache-to: type=gha,mode=max
 

@@ -13,11 +13,15 @@ WORKDIR /app
 
 # Copy the ZIP distribution file from the target directory
 COPY target/${ARTIFACT_ID}-${VERSION}.zip distribution.zip
+# COPY target/${ARTIFACT_ID}-*.zip distribution.zip
 
 # Extract the ZIP file and copy contents to app directory
 RUN unzip distribution.zip && \
     mv ${ARTIFACT_ID}-${VERSION}.jar app.jar && \
     rm distribution.zip
+#RUN unzip distribution.zip && \
+#    mv ${ARTIFACT_ID}-*.jar app.jar && \
+#    rm distribution.zip
 
 # Create a non-root user for security
 RUN addgroup -S spring && adduser -S spring -G spring
