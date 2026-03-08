@@ -118,7 +118,7 @@
                                 <echo message="=== Docker Build Command ==="/>
                                 <echo message="To build Docker image, run:"/>
                                 <echo message=""/>
-                                <echo message="docker build   --build-arg ARTIFACT_ID=${project.artifactId} --build-arg VERSION=${project.version}  -t coherityio/${project.artifactId}:${project.version} -t coherityio/${project.artifactId}:${project.version} . "/>
+                                <echo message="docker build   --build-arg ARTIFACT_ID=${project.artifactId} --build-arg VERSION=${project.version}  -t coherityio/${project.artifactId}:${project.version} . "/>
                                 <echo message=""/>
                                 <echo message="  --build-arg ARTIFACT_ID=${project.artifactId} \"/>
                                 <echo message="  --build-arg VERSION=${project.version} \"/>

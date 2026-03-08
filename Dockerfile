@@ -24,8 +24,8 @@ RUN unzip distribution.zip && \
 #    rm distribution.zip
 
 # Create a non-root user for security
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
+# RUN addgroup -S spring && adduser -S spring -G spring
+# USER spring:spring
 
 # Run the Spring Boot application with external log4j2.xml configuration
 ENTRYPOINT ["java", "-Dlog4j.configurationFile=log4j2.xml", "-jar", "app.jar"]
